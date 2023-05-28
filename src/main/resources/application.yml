@@ -1,0 +1,35 @@
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      # oneToMany?? in query ?? ??
+      default_batch_fetch_size: 100
+    # db session controller?? ????
+    open-in-view: false
+  # hibernateLazyInitializer ?? ???
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+logging:
+  level:
+    '[shop.mtcoding.restend]': DEBUG # DEBUG ???? ?? ??? ? ?? ????
+    '[org.hibernate.type]': TRACE # ?? ??? ? ? ??? ? ??
